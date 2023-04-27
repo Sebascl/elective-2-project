@@ -25,13 +25,18 @@ export const MenuSider = (props) => {
       icon: <AppstoreOutlined />,
       label: "Clientes",
       subMenu: [
-        {
-          key: "clients/list",
-          icon: <TeamOutlined />,
-          label: "Lista de clientes",
-        },
+        {key: "clients/list", icon: <TeamOutlined />, label: "Lista de clientes"},
         { key: "clients/new", icon: <TeamOutlined />, label: "Nuevo Cliente" },
       ],
+    },
+    {
+      key: "services",
+      icon: <AppstoreOutlined/>,
+      label: "Servicios",
+      subMenu: [
+        { key: "services/list", icon: <TeamOutlined/>, label: "Lista de servicios" },
+        { key: "services/new", icon: <TeamOutlined/>, label: "Nuevo servicio"}
+      ]
     },
     {
       key: "news",
@@ -39,8 +44,9 @@ export const MenuSider = (props) => {
       label: "Gestión de noticias",
     },
   ];
+  
   const navigateTo = (e) => {
-    const path = e.key;
+    const path = new URL(e.key, window.location.origin).pathname;
     console.log(path);
     navigate(path);
   };

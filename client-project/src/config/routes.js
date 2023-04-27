@@ -3,6 +3,8 @@ import { AdminHome } from "../pages/Admin/AdminHome";
 import { SignIn } from "../pages/Admin/SignIn";
 import { Contact } from "../pages/General/Contact";
 import { Home } from "../pages/General/Home";
+import { ListServices } from "../pages/Servicesmenu/ListServices";
+import { NewServices } from "../pages/Servicesmenu/NewServices";
 import { NotFound } from "../pages/General/NotFound/NotFound";
 
 const AdminRoutes = [
@@ -13,6 +15,9 @@ const GeneralRoutes = [
   { path: "/", component: Home, layout: GeneralLayout },
   { path: "/contact", component: Contact, layout: GeneralLayout },
   { path: "*", component: NotFound, layout: GeneralLayout },
+  { path: "/services/list", component:ListServices , layout: GeneralLayout },
+  { path: "/services/new", component:NewServices, layout: GeneralLayout}
 ];
+
 const AllRoutesProject = [...AdminRoutes, ...GeneralRoutes];
 export default AllRoutesProject;
