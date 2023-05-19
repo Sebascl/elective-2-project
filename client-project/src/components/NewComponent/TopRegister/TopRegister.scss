@@ -12,7 +12,13 @@
         display: flex;
         align-items: center;
         height: 50px;
-    }
+
+        &__logo {
+            margin-top: 20px;
+          width: 70px;
+          padding: auto 10px;
+        }
+      }
     &__right{
         display: flex;
         align-items: center;

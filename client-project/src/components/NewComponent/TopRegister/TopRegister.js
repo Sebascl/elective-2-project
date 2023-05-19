@@ -8,7 +8,9 @@ export const TopRegister = () => {
   return (
     <div className="top-register">
       <div className="top-register__left">
-          <img className="menu-top__left__logo" src={Logo} alt="Logo"></img>
+      <Link to="/">
+          <img className="top-register__left__logo" src={Logo} alt="Logo"></img>
+      </Link>
       </div>
       <div className="top-register__right">
         <Link to="/Register">

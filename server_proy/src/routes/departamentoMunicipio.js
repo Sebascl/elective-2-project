@@ -1,8 +1,8 @@
-const axios = require("axios");
-const departamentoMunicipio = require("../models/departamentoMunicipio");
-const express = require("express");
-const app = express.Router();
- 
+const axios = require('axios')
+const departamentoMunicipio = require('../models/departamentoMunicipio')
+const express = require('express')
+const app = express.Router()
+
 /* app.get("/datosabiertos", async (req, res) => {
   try {
     const response = await axios.get(
@@ -18,17 +18,17 @@ const app = express.Router();
   }
 }); */
 
-app.get("/departamentos-municipios", async (req, res) => {
+app.get('/departamentos-municipios', async (req, res) => {
   try {
     const departamento = req.query.departamento;
-    const query = departamento ? { departamento: departamento } : {};
+    const query = departamento ? { departamento: { $regex: new RegExp(departamento, 'i') } } : {};
     const data = await departamentoMunicipio.find(query);
     res.send(data);
   } catch (error) {
-    console.log("Error accediendo a la base de datos", error);
-    res.status(500).send("Error al acceder a la base de datos");
+    console.log('Error accediendo a la base de datos', error);
+    res.status(500).send('Error accediendo a la base de datos');
   }
 });
 
 
-module.exports = app;
+module.exports = app

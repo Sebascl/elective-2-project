@@ -24,12 +24,12 @@ const register = async (req, res) => {
   });
 
   const departamentoExiste = async (departamento, municipio) => {
-    const resultado = await departamentoMunicipio.findOne({departamento, municipio})
+    const resultado = await departamentoMunicipio.findOne({ departamento, municipio });
     return resultado !== null;
-  }
-  const existe = await departamentoExiste(departamento, municipio)
-  if (!existe) {
-      return res.status(400).send({msg: "El departamento o municipio no existen"})
+  };
+  
+  if (!(await departamentoExiste(departamento, municipio))) {
+    return res.status(400).send({ msg: "El departamento o municipio no existen" });
   }
 
   try {

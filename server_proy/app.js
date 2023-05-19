@@ -7,6 +7,7 @@ const app = express();
 const authRoutes = require("./src/routes/auth");
 const departamentoMunicipio = require("./src/routes/departamentoMunicipio");
 
+
 /* Trabajar con la extensión client-rest */
 app.use(bodyParser.json());
 /* Pruebas de request utilizando postman */
